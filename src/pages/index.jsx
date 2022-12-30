@@ -4,6 +4,8 @@ import { Inter } from '@next/font/google'
 import { Header } from 'components/header'
 import { Footer } from 'components/footer'
 import { Main } from 'components/main'
+import { dehydrate, QueryClient } from '@tanstack/react-query'
+import { getProducts } from 'api/products'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,4 +24,16 @@ export default function Home() {
       <Footer />
     </>
   )
+}
+
+export async function getServerSideProps() {
+  const queryClient = new QueryClient()
+
+  await queryClient.prefetchQuery(['products'], getProducts)
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  }
 }
