@@ -5,8 +5,10 @@ export default function ProductDetails() {
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1>product: {router.query.slug}</h1>
-      <p>product details</p>
+      <div>
+        <h1>product: {router.query.id}</h1>
+        <p>product details</p>
+      </div>
     </div>
   )
 }

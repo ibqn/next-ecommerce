@@ -6,6 +6,7 @@ import { Footer } from 'components/footer'
 import { Main } from 'components/main'
 import { dehydrate, QueryClient } from '@tanstack/react-query'
 import { getProducts } from 'api/products'
+import { Sidebar } from 'components/sidebar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,9 +20,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header />
       <Main />
-      <Footer />
     </>
   )
 }
