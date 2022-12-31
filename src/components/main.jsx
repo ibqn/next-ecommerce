@@ -11,12 +11,14 @@ export const Main = () => {
 
   return (
     <div>
-      <section>
+      <section className="py-16">
         <div className="container mx-auto">
-          {data.map((product) => {
-            const { id } = product
-            return <Product product={product} key={id} />
-          })}
+          <div className="mx-auto grid max-w-sm grid-cols-1 gap-[30px] md:max-w-none md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
+            {data.map((product) => {
+              const { id } = product
+              return <Product product={product} key={id} />
+            })}
+          </div>
         </div>
       </section>
     </div>
