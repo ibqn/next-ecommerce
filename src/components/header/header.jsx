@@ -12,9 +12,12 @@ export const Header = () => {
   const { cartAmmount } = useContext(CartContext)
 
   useEffect(() => {
-    window.addEventListener('scroll', () => {
+    const onScroll = () => {
       window.scrollY > 60 ? setIsActive(true) : setIsActive(false)
-    })
+    }
+    window.addEventListener('scroll', onScroll)
+
+    return () => window.removeEventListener('scroll', onScroll)
   })
 
   return (
