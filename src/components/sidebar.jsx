@@ -5,6 +5,7 @@ import { useContext } from 'react'
 import { SidebarContext } from 'hooks/use-context'
 import { CartContext } from 'hooks/use-cart'
 import { CartItem } from './cart-item'
+import Link from 'next/link'
 
 export const Sidebar = () => {
   const { isOpen, handleClose } = useContext(SidebarContext)
@@ -36,17 +37,31 @@ export const Sidebar = () => {
       </div>
 
       <div className="mt-4 flex flex-col gap-y-3 py-4">
-        <div className="flex items-center justify-between bg-pink-200">
+        <div className="flex items-center justify-between">
           <div className="font-semibold uppercase">
             <span className="mr-2">Total:</span>$ {totalPrice.toFixed(2)}
           </div>
           <div
             onClick={clearCart}
-            className="flex h-12 w-12 cursor-pointer items-center justify-center py-4 text-xl text-white"
+            className="flex h-12 w-12 cursor-pointer items-center justify-center bg-red-500 py-4 text-xl text-white"
           >
             <FiTrash2 />
           </div>
         </div>
+
+        <Link
+          className="flex items-center justify-center bg-gray-200 p-4 font-medium text-primary"
+          href={'/'}
+        >
+          View cart
+        </Link>
+
+        <Link
+          className="flex items-center justify-center bg-primary p-4 font-medium text-white"
+          href={'/'}
+        >
+          Checkout
+        </Link>
       </div>
     </div>
   )
