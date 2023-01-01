@@ -8,9 +8,7 @@ import { CartContext } from 'hooks/use-cart'
 export const Product = (props) => {
   const { className, product } = props
   const { id, title, image, category, price } = product
-  const { cart, addToCart } = useContext(CartContext)
-
-  // console.log('cart', cart)
+  const { addToCart } = useContext(CartContext)
 
   return (
     <div className={classNames(className)}>
