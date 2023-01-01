@@ -3,9 +3,13 @@ import { FiTrash2 } from 'react-icons/fi'
 import { classNames } from 'util/class-names'
 import { useContext } from 'react'
 import { SidebarContext } from 'hooks/use-context'
+import { CartContext } from 'hooks/use-cart'
+import { CartItem } from './cart-item'
 
 export const Sidebar = () => {
   const { isOpen, handleClose } = useContext(SidebarContext)
+  const { cart } = useContext(CartContext)
+
   return (
     <div
       className={classNames(
@@ -13,7 +17,22 @@ export const Sidebar = () => {
         isOpen ? 'right-0' : '-right-full'
       )}
     >
-      Sidebar
+      <div className="flex items-center justify-between border-b py-6">
+        <div className="text-sm font-semibold uppercase">Shopping Bag (0)</div>
+        <div
+          onClick={handleClose}
+          className="flex h-8 w-8 cursor-pointer items-center justify-center"
+        >
+          <IoMdArrowForward className="text-2xl" />
+        </div>
+      </div>
+
+      <div>
+        {[...cart].map(([key, item]) => {
+          console.log(item)
+          return <CartItem key={key} cartItem={item} />
+        })}
+      </div>
     </div>
   )
 }

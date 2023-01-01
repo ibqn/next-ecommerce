@@ -2,10 +2,15 @@ import Image from 'next/image'
 import { classNames } from 'util/class-names'
 import { BsPlus, BsEyeFill } from 'react-icons/bs'
 import Link from 'next/link'
+import { useContext } from 'react'
+import { CartContext } from 'hooks/use-cart'
 
 export const Product = (props) => {
   const { className, product } = props
   const { id, title, image, category, price } = product
+  const { cart, addToCart } = useContext(CartContext)
+
+  // console.log('cart', cart)
 
   return (
     <div className={classNames(className)}>
@@ -22,7 +27,7 @@ export const Product = (props) => {
             />
           </div>
           <div className="absolute top-6 -right-12 flex flex-col justify-center gap-y-2 p-2 opacity-0 transition-all duration-300 group-hover:right-5 group-hover:opacity-100">
-            <button>
+            <button onClick={() => addToCart(product)}>
               <div className="flex h-12 w-12 items-center justify-center bg-red-500 text-white">
                 <BsPlus className="text-3xl" />
               </div>

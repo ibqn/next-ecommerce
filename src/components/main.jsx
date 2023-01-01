@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { getProducts } from 'api/products'
 import { Product } from 'components/product'
+import { Hero } from 'components/hero'
 
 export const Main = () => {
   const { data, isLoading, error } = useQuery(['products'], getProducts)
@@ -11,6 +12,7 @@ export const Main = () => {
 
   return (
     <div>
+      <Hero />
       <section className="py-16">
         <div className="container mx-auto">
           <div className="mx-auto grid max-w-sm grid-cols-1 gap-[30px] md:max-w-none md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">

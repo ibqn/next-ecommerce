@@ -11,6 +11,7 @@ import { SidebarProvider } from 'hooks/use-context'
 import { Header } from 'components/header'
 import { Sidebar } from 'components/sidebar'
 import { Footer } from 'components/footer'
+import { CartProvider } from 'hooks/use-cart'
 
 export default function App({ Component, pageProps }) {
   const [queryClient] = useState(() => new QueryClient())
@@ -19,10 +20,12 @@ export default function App({ Component, pageProps }) {
     <QueryClientProvider client={queryClient}>
       <Hydrate state={pageProps.dehydratedState}>
         <SidebarProvider>
-          <Header />
-          <Sidebar />
-          <Component {...pageProps} />
-          <Footer />
+          <CartProvider>
+            <Header />
+            <Sidebar />
+            <Component {...pageProps} />
+            <Footer />
+          </CartProvider>
         </SidebarProvider>
       </Hydrate>
       <ReactQueryDevtools />
