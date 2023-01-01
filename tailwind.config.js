@@ -15,6 +15,9 @@ module.exports = {
       xl: '1440px',
     },
     extend: {
+      fontFamily: {
+        primary: 'Poppins',
+      },
       colors: {
         primary: '#222222',
         secondary: '#F5E6E0',
