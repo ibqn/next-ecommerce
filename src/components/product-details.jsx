@@ -17,7 +17,7 @@ export const ProductDetails = ({ id }) => {
   const { title, image, price, description } = data
 
   return (
-    <section className="flex h-screen items-center pt-32 pb-12 lg:py-32">
+    <section className="flex min-h-screen items-center pt-32 pb-12 lg:py-32">
       <div className="container mx-auto">
         <div className="flex flex-col items-center lg:flex-row">
           <div className="mb-8 flex flex-1 items-center justify-center lg:mb-0">
