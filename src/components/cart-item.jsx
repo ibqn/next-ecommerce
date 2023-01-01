@@ -8,7 +8,7 @@ export const CartItem = ({ cartItem }) => {
   const { id, title, price, image, ammount } = cartItem
   const { addToCart, removeFromCart, deleteFromCart } = useContext(CartContext)
   return (
-    <div className="flex">
+    <div className="flex gap-x-4 border-b border-gray-200 py-2 font-light text-gray-500 lg:px-6">
       <div className="flex min-h-[150px] w-full items-center gap-x-4">
         <Link href={`/product/${id}`}>
           <Image
