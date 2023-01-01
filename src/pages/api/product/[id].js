@@ -1,8 +1,11 @@
 import { HOST_URI } from 'api/config'
 import { products } from 'mock'
+import { corsMiddleware } from 'util/cors-middleware'
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
   const { id } = req.query
+
+  await corsMiddleware(req, res)
 
   const [product] = products
     .filter((product) => String(product.id) === id)
