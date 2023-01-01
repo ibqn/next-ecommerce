@@ -20,6 +20,9 @@ module.exports = {
         secondary: '#F5E6E0',
         grau: '#e4e4e4',
       },
+      backgroundImage: {
+        hero: "url('/images/bg_hero.svg')",
+      },
     },
   },
   plugins: [],
