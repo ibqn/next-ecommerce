@@ -5,6 +5,7 @@ export const CartContext = createContext(null)
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState(new Map())
   const [cartAmmount, setCartAmmount] = useState(0)
+  const [totalPrice, setTotalPrice] = useState(0)
 
   const addToCart = (product) => {
     const { id } = product
@@ -16,6 +17,7 @@ export const CartProvider = ({ children }) => {
     setCart(newCart)
 
     setCartAmmount(cartAmmount + 1)
+    setTotalPrice(totalPrice + product.price)
   }
 
   const removeFromCart = (product) => {
@@ -31,6 +33,7 @@ export const CartProvider = ({ children }) => {
     setCart(newCart)
 
     setCartAmmount(Math.max(0, cartAmmount - 1))
+    setTotalPrice(Math.max(0, totalPrice - product.price))
   }
 
   const deleteFromCart = (product) => {
@@ -40,12 +43,16 @@ export const CartProvider = ({ children }) => {
     newCart.delete(id)
     setCart(newCart)
     setCartAmmount(Math.max(0, cartAmmount - cart.get(id).ammount))
+    setTotalPrice(
+      Math.max(0, totalPrice - product.price * cart.get(id).ammount)
+    )
   }
 
   const clearCart = () => {
     const newCart = new Map()
     setCart(newCart)
     setCartAmmount(0)
+    setTotalPrice(0)
   }
 
   return (
@@ -53,6 +60,7 @@ export const CartProvider = ({ children }) => {
       value={{
         cart,
         cartAmmount,
+        totalPrice,
         clearCart,
         addToCart,
         removeFromCart,

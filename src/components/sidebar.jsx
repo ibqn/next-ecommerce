@@ -8,7 +8,7 @@ import { CartItem } from './cart-item'
 
 export const Sidebar = () => {
   const { isOpen, handleClose } = useContext(SidebarContext)
-  const { cart, clearCart, cartAmmount } = useContext(CartContext)
+  const { cart, clearCart, cartAmmount, totalPrice } = useContext(CartContext)
 
   return (
     <div
@@ -38,7 +38,7 @@ export const Sidebar = () => {
       <div className="mt-4 flex flex-col gap-y-3 py-4">
         <div className="flex items-center justify-between bg-pink-200">
           <div className="font-semibold uppercase">
-            <span className="mr-2">Total:</span>$ 1000
+            <span className="mr-2">Total:</span>$ {totalPrice.toFixed(2)}
           </div>
           <div
             onClick={clearCart}
