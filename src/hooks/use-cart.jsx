@@ -42,9 +42,22 @@ export const CartProvider = ({ children }) => {
     setCartAmmount(Math.max(0, cartAmmount - cart.get(id).ammount))
   }
 
+  const clearCart = () => {
+    const newCart = new Map()
+    setCart(newCart)
+    setCartAmmount(0)
+  }
+
   return (
     <CartContext.Provider
-      value={{ cart, cartAmmount, addToCart, removeFromCart, deleteFromCart }}
+      value={{
+        cart,
+        cartAmmount,
+        clearCart,
+        addToCart,
+        removeFromCart,
+        deleteFromCart,
+      }}
     >
       {children}
     </CartContext.Provider>
