@@ -14,7 +14,7 @@ export const Sidebar = () => {
   return (
     <div
       className={classNames(
-        'fixed top-0 z-20 h-full w-full bg-white px-4 shadow-2xl transition-all duration-300 md:w-[35vw] lg:px-[35px] xl:max-w-[30vw]',
+        'fixed top-0 z-20 flex h-full w-full flex-col overflow-y-auto bg-white px-4 shadow-2xl transition-all duration-300 md:w-[35vw] lg:px-[35px] xl:max-w-[30vw]',
         isOpen ? 'right-0' : '-right-full'
       )}
     >
@@ -30,7 +30,7 @@ export const Sidebar = () => {
         </div>
       </div>
 
-      <div className="flex h-[520px] flex-col gap-y-2 overflow-y-auto border-b lg:h-[640px]">
+      <div className="flex flex-1 flex-col gap-y-2 border-b">
         {[...cart].map(([key, item]) => {
           return <CartItem key={key} cartItem={item} />
         })}
