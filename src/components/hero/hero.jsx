@@ -11,9 +11,9 @@ export const Hero = () => {
             <div className="mr-3 h-[2px] w-10 bg-red-500"></div>New Trend
           </div>
 
-          <h1 className="mb-4 text-[70px] font-light leading-[1.1]">
-            AUTOMN SALE STYLISH <br />
-            <span className="font-semibold">WOMENS</span>
+          <h1 className="mb-4 text-[70px] font-extralight uppercase leading-[1.1]">
+            Automn Sale Stylish <br />
+            <span className="font-semibold">Womens</span>
           </h1>
           <Link
             className="self-start border-b-2 border-primary font-semibold uppercase"

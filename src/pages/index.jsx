@@ -1,10 +1,7 @@
 import Head from 'next/head'
-import { Inter } from '@next/font/google'
 import { Main } from 'components/main'
 import { dehydrate, QueryClient } from '@tanstack/react-query'
 import { getProducts } from 'api/products'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export default function HomePage() {
   return (

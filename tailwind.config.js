@@ -16,7 +16,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        primary: 'Poppins',
+        primary: 'var(--font-poppins)',
       },
       colors: {
         primary: '#222222',

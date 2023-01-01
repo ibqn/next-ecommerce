@@ -13,6 +13,15 @@ import { Sidebar } from 'components/sidebar'
 import { Footer } from 'components/footer'
 import { CartProvider } from 'hooks/use-cart'
 
+import { Poppins } from '@next/font/google'
+import { classNames } from 'util/class-names'
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  variable: '--font-poppins',
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+})
+
 export default function App({ Component, pageProps }) {
   const [queryClient] = useState(() => new QueryClient())
 
@@ -21,10 +30,12 @@ export default function App({ Component, pageProps }) {
       <Hydrate state={pageProps.dehydratedState}>
         <SidebarProvider>
           <CartProvider>
-            <Header />
-            <Sidebar />
-            <Component {...pageProps} />
-            <Footer />
+            <div className={classNames(poppins.variable, 'font-primary')}>
+              <Header />
+              <Sidebar />
+              <Component {...pageProps} />
+              <Footer />
+            </div>
           </CartProvider>
         </SidebarProvider>
       </Hydrate>
