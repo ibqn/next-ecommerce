@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { ProductDetails } from 'components/product-details'
+import { getProduct, getProducts } from 'api/products'
+import { dehydrate, QueryClient } from '@tanstack/react-query'
 
 export default function ProductDetailsPage() {
   const router = useRouter()
@@ -17,4 +19,31 @@ export default function ProductDetailsPage() {
       <ProductDetails id={router.query.id} />
     </>
   )
+}
+
+export async function getStaticPaths() {
+  const products = await getProducts()
+
+  const paths = products.map(({ id }) => ({
+    params: { id: String(id) },
+  }))
+
+  return {
+    paths,
+    fallback: false,
+  }
+}
+
+export async function getStaticProps({ params }) {
+  const { id } = params
+
+  const queryClient = new QueryClient()
+
+  await queryClient.prefetchQuery(['product', id], () => getProduct(id))
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  }
 }

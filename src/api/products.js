@@ -6,4 +6,9 @@ const getProducts = async () => {
   return data.filter(({ category }) => category.match(/clothing/))
 }
 
-export { getProducts }
+const getProduct = async (id) => {
+  const { data } = await axios.get(`${HOST_URI}/api/product/${id}`)
+  return data
+}
+
+export { getProducts, getProduct }
