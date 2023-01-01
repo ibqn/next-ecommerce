@@ -30,7 +30,7 @@ export const Sidebar = () => {
         </div>
       </div>
 
-      <div>
+      <div className="flex h-[520px] flex-col gap-y-2 overflow-y-auto border-b lg:h-[640px]">
         {[...cart].map(([key, item]) => {
           return <CartItem key={key} cartItem={item} />
         })}
