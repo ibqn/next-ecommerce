@@ -35,7 +35,9 @@ export const ProductDetails = ({ id }) => {
             <h1 className="mx-auto mb-2 max-w-[450px] text-[26px] font-medium lg:mx-0">
               {title}
             </h1>
-            <div className="mb-6 text-xl font-medium">$ {price}</div>
+            <div className="mb-6 text-xl font-medium text-red-500">
+              $ {price}
+            </div>
             <p className="mb-8">{description}</p>
             <button
               onClick={() => addToCart(data)}
