@@ -1,5 +1,7 @@
 ## Getting Started
 
+![Screenshot](screenshot.png)
+
 First, run the development server:
 
 ```bash
@@ -10,14 +12,14 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Screenshots
 
-Desktop:
+Desktop version:
 
-![Desktop](screenshot-desktop.png)
+![Desktop version](screenshot-desktop.png)
 
-Mobile:
+Mobile version:
 
-![Mobile](screenshot-mobile.png)
+![Mobile version](screenshot-mobile.png)
 
-Product:
+Product page:
 
-![Product](screenshot-product.png)
+![Product page](screenshot-product.png)
